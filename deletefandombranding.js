@@ -4,8 +4,8 @@
 // @version      0.2
 // @description  Deletes links and branding for other Fandom stuff on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
-// @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/master/deletefandombranding.js
-// @downloadURL  https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/master/deletefandombranding.js
+// @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deletefandombranding.js
+// @downloadURL  https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deletefandombranding.js
 // @include      https://*.fandom.com/wiki/*
 // @icon         https://icons.duckduckgo.com/ip2/www.fandom.com.ico
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js#sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=
