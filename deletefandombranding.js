@@ -40,6 +40,7 @@ if (jQuery.fn.jquery == "3.6.0") {
 .search-modal, .search-modal::before {
     left: 0 !important;
 }`);
+        $(".unified-search__layout__right-rail").remove();
     });
     log("Done!");
 } else {
