@@ -1,0 +1,101 @@
+{
+  "name": "deletefandombranding",
+  "version": "0.4.0",
+  "description": "Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.",
+  "root": true,
+  "private": true,
+  "scripts": {
+    "lint": "eslint --fix **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicholasDJM/DeleteFandomBranding.git"
+  },
+  "keywords": [
+    "userscript"
+  ],
+  "author": "Nicholas Miller",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/NicholasDJM/DeleteFandomBranding/issues"
+  },
+  "homepage": "https://github.com/NicholasDJM/DeleteFandomBranding#readme",
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "eslint-plugin-userscripts": "^0.2.1"
+  },
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"browser": true,
+			"es2021": true
+		},
+		"plugins": [
+			"unicorn",
+      "userscripts"
+		],
+		"extends": [
+			"eslint:recommended",
+			"plugin:unicorn/recommended",
+      "plugin:userscripts/recommended"
+		],
+		"parserOptions": {
+			"ecmaVersion": "latest"
+		},
+		"ignorePatterns": [],
+		"globals": {
+      "$": "readonly",
+      "jQuery": "readonly",
+      "GM_addStyle": "readonly",
+      "GM_log": "readonly"
+    },
+    "settings": {
+      "userscriptVersions": {"tampermonkey": "4.16.0"}
+    },
+		"rules": {
+			"indent": [
+				"error",
+				"tab"
+			],
+			"linebreak-style": [
+				"error",
+				"windows"
+			],
+			"quotes": [
+				"warn",
+				"double"
+			],
+			"semi": [
+				"error",
+				"always"
+			],
+			"no-unused-vars": "off",
+			"comma-spacing": "error",
+			"camelcase": "warn",
+			"no-var": "error",
+			"no-warning-comments": "warn",
+			"yoda": "warn",
+			"no-constant-condition": [
+				"error",
+				{
+					"checkLoops": false
+				}
+			],
+			"unicorn/consistent-function-scoping": "warn",
+			"unicorn/filename-case": [
+				"error",
+				{
+					"case": "camelCase"
+				}
+			],
+			"unicorn/prefer-query-selector": "warn",
+			"unicorn/prefer-dom-node-dataset": "off",
+			"unicorn/prefer-module": "off",
+      "unicorn/numeric-separators-style": "off",
+      "userscripts/compat-headers": "error",
+      "userscripts/use-homepage-and-url": "error",
+      "userscripts/use-download-and-update-url": "error"
+		}
+	}
+}
