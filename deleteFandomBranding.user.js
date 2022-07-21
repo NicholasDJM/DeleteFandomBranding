@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.4.0
+// @version      0.4.1
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -39,6 +39,9 @@ if (jQuery?.fn?.jquery == "3.6.0") {
     left: 0 !important;
 }`);
 		$(".unified-search__layout__right-rail").remove();
+		
+		// Ensure each corner has a matching radius.
+        $(".page__main").css("border-radius", $(".page__main").css("border-radius").split(" ")[0]);
 	});
 	log("Done!");
 } else {
