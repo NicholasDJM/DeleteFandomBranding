@@ -21,13 +21,13 @@ if (jQuery?.fn?.jquery == "3.6.0") {
 	$(()=>{
 		let timer;
 		timer = setInterval(()=>{
-			$("#SurveyModule").remove();
+			$("#SurveyModule").css("display", "none");
 		}, 1000);
 		setTimeout(()=>{clearInterval(timer);}, 15000);
-		$(".global-navigation").remove();
-		$("#WikiaBar").remove();
-		$(".page__right-rail").remove();
-		$("#mixed-content-footer").remove();
+		$(".global-navigation").css("display", "none");
+		$("#WikiaBar").css("display", "none");
+		$(".page__right-rail").css("display", "none");
+		$("#mixed-content-footer").css("display", "none");
 		$(".main-container").css("width", "100%");
 		$(".main-container").css("margin-left", "0");
 		$(".fandom-sticky-header").css("left", "0");
@@ -38,8 +38,7 @@ if (jQuery?.fn?.jquery == "3.6.0") {
 .search-modal, .search-modal::before {
     left: 0 !important;
 }`);
-		$(".unified-search__layout__right-rail").remove();
-		
+		$(".unified-search__layout__right-rail").css("display", "none");
 		// Ensure each corner has a matching radius.
         $(".page__main").css("border-radius", $(".page__main").css("border-radius").split(" ")[0]);
 	});
