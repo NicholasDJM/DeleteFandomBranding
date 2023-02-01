@@ -1,22 +1,22 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.5.0
+// @version      0.5.1
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
 // @downloadURL  https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
 // @match        https://*.fandom.com/wiki/*
 // @icon         https://icons.duckduckgo.com/ip2/www.fandom.com.ico
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js#sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=
+// @require      https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js#sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=
 // @grant        GM_log
 // @grant        GM_addStyle
 // ==/UserScript==
-
+const jqueryVersion = "3.6.3";
 function log(text) {
 	GM_log("Delete Fandom Branding: " + text);
 }
-if (jQuery?.fn?.jquery == "3.6.0") {
+if (jQuery?.fn?.jquery == jqueryVersion) {
 	log("Loading userscript...");
 	$(()=>{
 		let timer;
@@ -44,5 +44,5 @@ if (jQuery?.fn?.jquery == "3.6.0") {
 	});
 	log("Done!");
 } else {
-	log("Incorrect jQuery version. Expecting 3.6.0");
+	log("Incorrect jQuery version. Expecting " + jqueryVersion);
 }
