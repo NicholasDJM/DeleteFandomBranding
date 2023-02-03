@@ -10,5 +10,5 @@ This user script removes references to other Fandom Wikis and articles from ever
 1. In order to use this script you must have a UserScript Extension, like [TamperMonkey](https://tampermonkey.net).  
 2. Once that's installed to your browser of choice, [click here to install the script](https://github.com/NicholasDJM/DeleteFandomBranding/raw/main/deleteFandomBranding.user.js).
 3. A screen showing you the script contents will popup, asking you if want to install, click install.
-   - **<span style="color:#c80000">Always read the script before installing to make sure it doesn't do anything malicious, if you do not understand what the script does, do not install this script.</span>**
+   - **:warning: Always read the script before installing to make sure it doesn't do anything malicious, if you do not understand what the script does, do not install this script.**
 4. Once installed, visiting any Fandom.com Wiki, like the [Minecraft Wiki](https://minecraft.fandom.com) for example, will now have all content expanded to take up more screen space.
