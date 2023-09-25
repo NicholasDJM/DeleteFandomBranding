@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.6.2
+// @version      0.6.3
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
 // @downloadURL  https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
-// @match        https://*.fandom.com/wiki/*
+// @match        https://*.fandom.com/*/*
 // @icon         https://icons.duckduckgo.com/ip2/www.fandom.com.ico
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js#sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=
 // @grant        GM_log
