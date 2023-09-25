@@ -4,7 +4,7 @@
 
 This user script removes references to other Fandom Wikis and articles from every wiki page, while also expanding the content space.
 
-![Before and After](BeforeAndAfter.webp)
+![Before and After](src/BeforeAndAfter.webp)
 
 # Installation
 1. In order to use this script you must have a UserScript Extension, like [TamperMonkey](https://tampermonkey.net).  
