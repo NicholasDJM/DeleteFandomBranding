@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.5.2
+// @version      0.6.2
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -13,7 +13,8 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-const jqueryVersion = "3.6.3";
+const jqueryVersion = "3.6.3",
+	delay = 100;
 function log(text) {
 	GM_log("Delete Fandom Branding: " + text);
 }
@@ -22,9 +23,15 @@ if (jQuery?.fn?.jquery == jqueryVersion) {
 	$(()=>{
 		let timer;
 		timer = setInterval(()=>{
-			$("#SurveyModule").css("display", "none");
-		}, 1000);
-		setTimeout(()=>{clearInterval(timer);}, 15000);
+			if ($("#SurveyModule")) {
+				$("#SurveyModule").css("display", "none");
+			}
+			if ($("#SurveyModule").length === 0) {
+				clearInterval(timer);
+				log("Cleared survey");
+			}
+		}, delay);
+		log("Style Point");
 		$(".global-navigation").css("display", "none");
 		$("#WikiaBar").css("display", "none");
 		$(".page__right-rail").css("display", "none");
@@ -37,11 +44,56 @@ if (jQuery?.fn?.jquery == jqueryVersion) {
 		// Couldn't seem to apply an inline style to a 'before' pseudo class, so I instead injected my own override style.
 		GM_addStyle(`/* Delete Fandom Branding Style Override. https://github.com/NicholasDJM/DeleteFandomBranding */
 .search-modal, .search-modal::before {
-    left: 0 !important;
+	left: 0 !important;
 }`);
 		$(".unified-search__layout__right-rail").css("display", "none");
 		// Ensure each corner has a matching radius.
 		$(".page__main").css("border-radius", $(".page__main").css("border-radius").split(" ")[0]);
+		log("Added Styles...");
+		log("Scroll Point");
+		const url = new URL(window.location.href);
+		let element;
+		if (url.hash) {
+			element = $(url.hash);
+		}
+		if (url.hash && element) {
+			setTimeout(()=>{element.scrollIntoView();}, 100);
+			log("Scrolling...");
+			// This fixes content being hidden due to layout shifts.
+			// The browser loads the page, scrolls to the element. And then we change the layout, so we need to scroll again.
+		}
+		log("Gate point");
+		const gateTimer = setInterval(()=>{
+			if ($("#adult")) {
+				$("#adult").trigger("click");
+			}
+			if ($("#adult").length === 0) {
+				clearInterval(gateTimer);
+				log("Cleared gate");
+			}
+			// Auto clicks the "I am an adult" button on the age gate modal.
+		}, delay);
+		log("Notice point");
+		const noticeTimer = setInterval(()=>{
+			const element = $(".sitenotice-wrapper");
+			if (element) {
+				element.css("display", "none");
+			}
+			if (element.length === 0) {
+				clearInterval(noticeTimer);
+				log("Cleared notice");
+			}
+		}, delay);
+		log("Size toggle point");
+		const toggleTimer = setInterval(()=>{
+			const element = $("[name=content-size-toggle]");
+			if (element && element.data("wds-tooltip") === "Expand") {
+				log("Expanding...");
+				element.trigger("click");
+				clearInterval(toggleTimer);
+			}
+		}, delay);
+		log("End point");
 	});
 	log("Done!");
 } else {

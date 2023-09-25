@@ -1,6 +1,6 @@
 {
   "name": "deletefandombranding",
-  "version": "0.5.2",
+  "version": "0.6.2",
   "description": "Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.",
   "root": true,
   "private": true,
@@ -92,6 +92,7 @@
       "unicorn/prefer-dom-node-dataset": "off",
       "unicorn/prefer-module": "off",
       "unicorn/numeric-separators-style": "off",
+      "unicorn/expiring-todo-comments": "off",
       "userscripts/compat-headers": "error",
       "userscripts/use-homepage-and-url": "error",
       "userscripts/use-download-and-update-url": "error"
