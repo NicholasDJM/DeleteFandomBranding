@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.7.0
+// @version      0.7.1
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		if (element && element.dataset.wdsTooltip === "Expand") {
 			log("Expanding...");
 			trigger(element, "click");
+			clearInterval(toggleTimer);
+		} else if (element && element.dataset.wdsTooltop === "Collapse") {
 			clearInterval(toggleTimer);
 		}
 	}, delay);
