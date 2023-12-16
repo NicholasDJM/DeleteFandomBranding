@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.7.3
+// @version      0.7.4
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		if (element && element.getAttribute("aria-label") === "Expand") {
 			log("Expanding...");
 			trigger(element, "click");
-			clearInterval(toggleTimer);
 		} else if (element && element.getAttribute("aria-label") === "Collapse") {
+			log("Expanded.");
 			clearInterval(toggleTimer);
 		}
 	}, delay);
