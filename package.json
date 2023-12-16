@@ -21,16 +21,15 @@
   },
   "homepage": "https://github.com/NicholasDJM/DeleteFandomBranding#readme",
   "devDependencies": {
-    "eslint": "^8.33.0",
-    "eslint-plugin-unicorn": "^45.0.2",
-    "eslint-plugin-userscripts": "^0.2.10"
+    "eslint": "^8.56.0",
+    "eslint-plugin-unicorn": "^49.0.0",
+    "eslint-plugin-userscripts": "^0.4.0"
   },
   "eslintConfig": {
     "root": true,
     "env": {
       "browser": true,
       "es2022": true,
-      "jquery": true,
       "greasemonkey": true
     },
     "plugins": [
@@ -49,7 +48,7 @@
     "globals": {},
     "settings": {
       "userscriptVersions": {
-        "tampermonkey": "4.16.0"
+        "tampermonkey": "5.0.0"
       }
     },
     "rules": {
