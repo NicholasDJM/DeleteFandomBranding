@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/NicholasDJM/DeleteFandomBranding#readme",
   "devDependencies": {
+    "@types/tampermonkey": "5.0.2",
     "eslint": "^8.56.0",
     "eslint-plugin-unicorn": "^49.0.0",
     "eslint-plugin-userscripts": "^0.4.0"
@@ -94,7 +95,7 @@
       "unicorn/expiring-todo-comments": "off",
       "userscripts/compat-headers": "error",
       "userscripts/use-homepage-and-url": "error",
-      "userscripts/use-download-and-update-url": "error"
+      "userscripts/require-download-url": "error"
     }
   }
 }
