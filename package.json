@@ -1,6 +1,6 @@
 {
   "name": "deletefandombranding",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.",
   "root": true,
   "private": true,
@@ -23,8 +23,8 @@
   "devDependencies": {
     "@types/tampermonkey": "5.0.2",
     "eslint": "^8.56.0",
-    "eslint-plugin-unicorn": "^49.0.0",
-    "eslint-plugin-userscripts": "^0.4.0"
+    "eslint-plugin-unicorn": "^51.0.1",
+    "eslint-plugin-userscripts": "^0.5.2"
   },
   "eslintConfig": {
     "root": true,

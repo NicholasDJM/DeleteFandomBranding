@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.7.5
+// @version      0.7.6
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -25,7 +25,8 @@ GM_addStyle(`/* Delete Fandom Branding Style Override. https://github.com/Nichol
 .page__right-rail,
 #mixed-content-footer,
 .unified-search__layout__right-rail,
-.site-notice-wrapper {
+.site-notice-wrapper,
+.notifications-placeholder {
 	display: none !important;
 }
 .main-container {
