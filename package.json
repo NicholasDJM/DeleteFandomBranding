@@ -1,7 +1,7 @@
 {
   "name": "deletefandombranding",
-  "version": "0.7.6",
-  "description": "Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space.",
+  "version": "0.8.0",
+  "description": "Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.",
   "root": true,
   "private": true,
   "scripts": {
@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/NicholasDJM/DeleteFandomBranding#readme",
   "devDependencies": {
-    "@types/tampermonkey": "5.0.2",
+    "@types/tampermonkey": "5.0.4",
     "eslint": "^8.56.0",
-    "eslint-plugin-unicorn": "^51.0.1",
+    "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-userscripts": "^0.5.2"
   },
   "eslintConfig": {
@@ -49,7 +49,7 @@
     "globals": {},
     "settings": {
       "userscriptVersions": {
-        "tampermonkey": "5.0.0"
+        "tampermonkey": "5.3.3"
       }
     },
     "rules": {
@@ -97,5 +97,6 @@
       "userscripts/use-homepage-and-url": "error",
       "userscripts/require-download-url": "error"
     }
-  }
+  },
+  "packageManager": "pnpm@10.2.0+sha512.0d27364e0139c6aadeed65ada153135e0ca96c8da42123bd50047f961339dc7a758fc2e944b428f52be570d1bd3372455c1c65fa2e7aa0bfbf931190f9552001"
 }
