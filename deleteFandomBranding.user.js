@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.8.0
+// @version      0.8.1
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -97,6 +97,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		// By default, the secondary nav bar is hidden, and visible when page is scrolled. We want to override this behaviour, since we've hidden the primary nav bar (.global-navigation-explore).
 		// I've hidden the primary nav bar because it's easier than dissecting the CSS to hide the branding.
 		element.style.transform = "translateY(100%)";
+
+		// Listens for changes to the 'inert' attribute and sets it to false if changed.
+		// Needed to prevent the secondary nav bar from being disabled.
+		element.addEventListener("attributechange", function(event) {
+			if (event.attributeName === "inert") {
+				element.setAttribute("inert", false);
+			}
+		});
 	}
 	log("Done!");
 });
