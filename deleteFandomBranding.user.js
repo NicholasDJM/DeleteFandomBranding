@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.8.2
+// @version      0.8.3
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 			debounceTimer = setTimeout(() => {
 				for (const mutation of mutations) {
 					if (mutation.type === "attributes" && mutation.attributeName === "inert") {
-						element.setAttribute("inert", "false");
+						element.removeAttribute("inert");
 					}
 				}
 			}, 0);

@@ -1,6 +1,6 @@
 {
   "name": "deletefandombranding",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.",
   "root": true,
   "private": true,
