@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.8.1
+// @version      0.8.2
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -98,12 +98,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		// I've hidden the primary nav bar because it's easier than dissecting the CSS to hide the branding.
 		element.style.transform = "translateY(100%)";
 
-		// Listens for changes to the 'inert' attribute and sets it to false if changed.
+		// Uses a mutation observer to listen for changes to the 'inert' attribute and sets it to false if changed.
 		// Needed to prevent the secondary nav bar from being disabled.
-		element.addEventListener("attributechange", function(event) {
-			if (event.attributeName === "inert") {
-				element.setAttribute("inert", false);
-			}
+		// Added a debouncer to prevent observing our own mutations.
+		let debounceTimer;
+		const observer = new MutationObserver(mutations => {
+			clearTimeout(debounceTimer);
+			debounceTimer = setTimeout(() => {
+				for (const mutation of mutations) {
+					if (mutation.type === "attributes" && mutation.attributeName === "inert") {
+						element.setAttribute("inert", "false");
+					}
+				}
+			}, 0);
+		});
+
+		observer.observe(element, {
+			attributes: true,
+			attributeFilter: ["inert"]
 		});
 	}
 	log("Done!");
