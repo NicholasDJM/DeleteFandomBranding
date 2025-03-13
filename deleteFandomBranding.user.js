@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.8.4
+// @version      0.8.5
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -12,6 +12,12 @@
 // @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
+
+/*
+	This program, unless otherwise stated, is licensed under Do What The Fuck You Want To Public License (WTFPL).
+	This program uses code licensed under MIT, and is stated as such near those sections.
+*/
+
 
 const delay = 100; // You can edit this variable. In milliseconds.
 const expand = true; // You can edit this variable. true or false. Should we automatically click the expand button on articles?
@@ -59,7 +65,8 @@ GM_addStyle(`/* Delete Fandom Branding Style Override. https://github.com/Nichol
 }
 `);
 // https://youmightnotneedjquery.com/#trigger_native
-// Slight modification, I check if the element exists.
+// Slight modification from original: I check if the element exists beforehand.
+// This code below is licensed under MIT
 function trigger(element, eventType) {
 	if (element) {
 		if (typeof eventType === "string" && typeof element[eventType] === "function") {
@@ -73,6 +80,7 @@ function trigger(element, eventType) {
 		}
 	}
 }
+// The above code is licensed under MIT.
 document.addEventListener("DOMContentLoaded", ()=>{
 	const gateTimer = setInterval(()=>{
 		const gate = document.querySelector("#adult");
@@ -120,6 +128,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 			attributes: true,
 			attributeFilter: ["inert"]
 		});
+	}
+	else {
+		log("Cannot find #community-navigation element.");
 	}
 	log("Done!");
 });
