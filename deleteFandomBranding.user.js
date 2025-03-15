@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Delete Fandom Branding
 // @namespace    https://github.com/NicholasDJM/DeleteFandomBranding
-// @version      0.8.5
+// @version      0.8.6
 // @description  Deletes links and branding for other Fandom articles on every wiki page, and expands wiki content space. Makes the website tolerable to use, without all the bloat.
 // @author       Nicholas Miller
 // @updateURL    https://raw.githubusercontent.com/NicholasDJM/DeleteFandomBranding/main/deleteFandomBranding.user.js
@@ -94,20 +94,26 @@ document.addEventListener("DOMContentLoaded", ()=>{
 		const toggleTimer = setInterval(()=>{
 			// Tries to expand content area, via Fandom's own button.
 			// Conveniently, Fandom has a localStorage item that keeps track of button's state. We can use that to ensure the content is always expanded.
-			const element = document.querySelector(".content-size-toggle");
-			if (element) trigger(element, "click");
-			if (localStorage.getItem("contentwidth") === "expanded") clearInterval(toggleTimer);
+			const contentSizeToggle = document.querySelector(".content-size-toggle");
+			if (contentSizeToggle) {
+				// We check for the localStorage item first, so we don't shrink the content by accident.
+				if (localStorage.getItem("contentwidth") === "expanded") {
+					clearInterval(toggleTimer);
+				} else {
+					trigger(contentSizeToggle, "click");
+				}
+			}
 		}, delay);
 	}
-	const element = document.querySelector("#community-navigation");
-	if (element) {
+	const navBar = document.querySelector("#community-navigation");
+	if (navBar) {
 		// We want this to always be shown.
 		// By default, the secondary nav bar is hidden, and visible when page is scrolled. We want to override this behaviour, since we've hidden the primary nav bar (.global-navigation-explore).
 		// I've hidden the primary nav bar because it's easier than dissecting the CSS to hide the branding.
-		element.style.transform = "translateY(100%)";
+		navBar.style.transform = "translateY(100%)";
 
 		// Remove inert attribute on page load.
-		element.removeAttribute("inert");
+		navBar.removeAttribute("inert");
 
 		// Uses a mutation observer to listen for changes to the 'inert' attribute and sets it to false if changed.
 		// Needed to prevent the secondary nav bar from being disabled.
@@ -118,13 +124,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
 			debounceTimer = setTimeout(() => {
 				for (const mutation of mutations) {
 					if (mutation.type === "attributes" && mutation.attributeName === "inert") {
-						element.removeAttribute("inert");
+						navBar.removeAttribute("inert");
 					}
 				}
 			}, 0);
 		});
 
-		observer.observe(element, {
+		observer.observe(navBar, {
 			attributes: true,
 			attributeFilter: ["inert"]
 		});
